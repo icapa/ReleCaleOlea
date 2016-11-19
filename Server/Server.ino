@@ -13,11 +13,11 @@
 // in your local area network. You can not have the same numbers in
 // two devices:
 uint8_t mymac[6] = {0xBE,0xBA,0x50,0x2C,0x6F,0x67}; 
-uint8_t myip[4] = {192,168,2,7};
+uint8_t myip[4] = {192,168,2,77};
 uint8_t mymask[4] = {255,255,255,0};
 uint16_t MYWWWPORT = 80; // listen port for tcp/www (max range 1-254)
-char baseurl[]="http://192.168.2.7/";
-char pass[]="YWRtaW46YWRtaW4";
+char baseurl[]="http://192.168.2.77/";
+char pass[]="nopassword";
 
 #define BUFFER_SIZE 750
 static uint8_t buf[BUFFER_SIZE+1];

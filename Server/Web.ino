@@ -58,13 +58,14 @@ uint16_t print_webpage(uint8_t *buf)
         
         plen=es.ES_fill_tcp_data_p(buf,0,PSTR("HTTP/1.0 200 OK\r\nContent-Type: text/html\r\n\r\n"));
         
-        plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<center><table border=0><tr><td align=right>"));
+        //plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<center><table border=0><tr><td align=right>"));
         
         
-        plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<p><h1>Inputs: "));
-        if(digitalRead(A5)==1) plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("1"));
-           else plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("0"));
+        plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<p><h1>Caliente: "));
+        if(digitalRead(A5)==1) plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("SI"));
+           else plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("NO"));
         plen=es.ES_fill_tcp_data_p(buf,plen,PSTR(" "));
+        /*
         if(digitalRead(A4)==1) plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("1"));
            else plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("0"));
         plen=es.ES_fill_tcp_data_p(buf,plen,PSTR(" "));
@@ -90,25 +91,26 @@ uint16_t print_webpage(uint8_t *buf)
         plen=es.ES_fill_tcp_data_p(buf,plen,PSTR(" "));
         
         plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("</p> </h1>"));
-               
-        plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<p><h1>Manual Control: "));
+        */
+        plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<p><h1>Control: "));
         ///---------------------------- 1 ----------------------------------------------
         if(digitalRead(8))
                  //plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("1"));
                  {
                  plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<a href="));
                  plen=es.ES_fill_tcp_data(buf,plen,baseurl);
-                 plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("FF0100>1</a> "));
+                 plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("FF0100>APAGAR</a> "));
                  }
         else
                  //plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("0"));
                  {
                  plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<a href="));
                  plen=es.ES_fill_tcp_data(buf,plen,baseurl);
-                 plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("FF0101>0</a> "));
+                 plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("FF0101>ENCENDER</a> "));
                  }
                  
         plen=es.ES_fill_tcp_data_p(buf,plen,PSTR(" "));
+        /*
         ///---------------------------- 2 ----------------------------------------------
         if(digitalRead(7))
                  //plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("1"));
@@ -158,17 +160,17 @@ uint16_t print_webpage(uint8_t *buf)
                  plen=es.ES_fill_tcp_data(buf,plen,baseurl);
                  plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("FF0401>0</a>"));
                  }
-                 
+        */
         plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("</p>"));
         plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<a href="));
         plen=es.ES_fill_tcp_data(buf,plen,baseurl);
-        plen=es.ES_fill_tcp_data_p(buf,plen,PSTR(">Refresh</a> "));
+        plen=es.ES_fill_tcp_data_p(buf,plen,PSTR(">Refrescar</a> "));
                  
         plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("</tr></table> </h1>"));
         plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("</p> </h1>"));
         
         
-        plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<center><p><h4>KMTronic DINo Web Server v2.1</h4></p> "));
+        //plen=es.ES_fill_tcp_data_p(buf,plen,PSTR("<center><p><h4>KMTronic DINo Web Server v2.1</h4></p> "));
         
         
         return(plen);
