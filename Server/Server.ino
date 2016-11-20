@@ -1,11 +1,15 @@
+/*
 #include <dnslkup.h>
 #include <enc28j60.h>
-#include <EtherShield.h>
+#include "EtherShield.h"
 #include <ip_arp_udp_tcp.h>
 #include <ip_config.h>
 #include <net.h>
 #include <websrv_help_functions.h>
+*/
 
+#include<UIPEthernet.h>
+#include<EtherShield.h>
 
 
 
